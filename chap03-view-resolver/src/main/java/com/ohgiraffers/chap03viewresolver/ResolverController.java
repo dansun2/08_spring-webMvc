@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
+@RequestMapping("/*")
 public class ResolverController  {
     
     @GetMapping("string")
@@ -15,7 +15,7 @@ public class ResolverController  {
         
         /*
         * 문자열로 뷰 이름을 반환한다는 것은 반환 후
-        * ThymeleafViewRewolver에게 resources/template/를 prefix로 .html을 suffix로 하여
+        * ThymeleafViewRewolver에게 resources/templates/를 prefix로 .html을 suffix로 하여
         * resources/templates/result.html 파일로 응답 뷰를 설정하라는 의미가 된다.
          */
         return "result";
