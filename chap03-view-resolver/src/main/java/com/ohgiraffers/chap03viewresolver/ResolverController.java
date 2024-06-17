@@ -57,4 +57,10 @@ public class ResolverController  {
         mv.setViewName("result");
         return mv;
     }
+
+    @GetMapping("modelview-redirect")
+    public ModelAndView modelAndViewRedirect(ModelAndView mv){
+        mv.setViewName("redirect:/");
+        return mv;
+    }
 }
