@@ -20,5 +20,10 @@ public class ResolverController  {
          */
         return "result";
     }
+
+    @GetMapping("string-redirect")
+    public String StringRedirect(){
+        return "redirect:/";
+    }
     
 }
