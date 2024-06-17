@@ -9,17 +9,17 @@
     <form action="result2" method="get">
        <label for="selection"> 원하는 직업 :</label>
        <select id="selection" name="selection">
-           <option value="거지">거지</option>
-           <option value="부자">부자</option>
+           <option value="poor">거지</option>
+           <option value="rich">부자</option>
         </select>
         <input type="submit" value="전송">
     </form>
 
         <script>
-            const poorMessage = `[[${ result2 }]]`;
-            console.log(poorMessage);
-            if (poorMessage) {
-                alert(poorMessage);
+            const result2 = `[[${ result2 }]]`;
+            console.log(result2);
+            if (result2) {
+                alert(result2);
             }
         </script>
 </body>
