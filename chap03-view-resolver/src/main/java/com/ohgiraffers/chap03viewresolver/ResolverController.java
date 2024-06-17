@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -43,5 +44,17 @@ public class ResolverController  {
         rttr.addFlashAttribute("flashMessage1","리다이렉트 attr 사용하여 redirect..");
         return "redirect:/";
     }
-    
+
+    @GetMapping("modelandview")
+    public ModelAndView modelAndViewReturning(ModelAndView mv){
+        /*
+        * 모델과 뷰를 합친 개념이다.
+        * 핸들러 어댑터가 핸들러 메소드를 호출하고 반환받은 문자열을 modelandview로 만들어 dispatcherServlet에 반환한다.
+        * 이 때 문자열을 반환해도 되지만 ModelAndView를 미리 만들어 반환할 수도 있다.
+         */
+
+        mv.addObject("forwardMessage","modelandview를 이용한 모델과 뷰 반환");
+        mv.setViewName("result");
+        return mv;
+    }
 }

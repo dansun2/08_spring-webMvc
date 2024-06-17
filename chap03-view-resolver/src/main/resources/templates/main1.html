@@ -23,16 +23,19 @@
     <h3>문자열로 redirect 하기</h3>
     <button onclick="location.href='string-redirect'">문자열로 뷰 이름 반환하여 리다이렉트</button>
 
-    <h3>문자열로 뷰 이름 반환하면서 flashAttribute 추가하기</h3>\
-    <button onclick="location.href='string-redirect-attr'">문자열로 뷰 이름 반환하여 리다이렉트 &flastAttr 사용하기 </button>
+    <h3>문자열로 뷰 이름 반환하면서 flashAttribute 추가하기</h3>
+    <button onclick="location.href='string-redirect-attr'">문자열로 뷰 이름 반환하여 리다이렉트 &flashAttr 사용하기 </button>
 
-<script>
-    const  flashMessage1 = `[[${flashMessage1}]]`;
-    console.log(flashMessage1);
+    <script>
+        const  flashMessage1 = '[[${flashMessage1}]]';
+       console.log(flashMessage1);
 
-    if(flashMessage1){
-        alert(flashMessage1);
-    }
-</script>
+        if(flashMessage1){
+            alert(flashMessage1);
+        }
+    </script>
+
+    <h3>modelandview로 뷰 이름 지정해서 반환하기</h3>
+    <button onclick="location.href='modelandview'">ModelAndView로 뷰 이름 지정해서 반환받기</button>
 </body>
 </html>
