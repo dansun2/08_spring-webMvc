@@ -21,6 +21,13 @@ public class LectureController {
         mv.setViewName("lecture/expression");
         return mv;
     }
+    @GetMapping("conditional")
+    public ModelAndView conditional(ModelAndView mv){
+
+        mv.setViewName("/lecture/conditional");
+        return mv;
+    }
+
 
     @GetMapping("etc")
     public void etc(){}
