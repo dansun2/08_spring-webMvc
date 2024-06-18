@@ -1,5 +1,6 @@
 package com.ohgiraffers.chap07thymeleaf.controller;
 
+import com.ohgiraffers.chap07thymeleaf.model.dto.MemberDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ public class LectureController {
     // get 방식의 요청이 들어오면 expression이 있는지 찾고 있으면 밑에 return 실행
     @RequestMapping(value = "expression", method = RequestMethod.GET) // 축약하면 @GetMapping("expression")
     public ModelAndView expression(ModelAndView mv){
+        mv.addObject("member", new MemberDTO("홍길동",20,'남',"서울시 서초구"));
         mv.setViewName("lecture/expression");
         return mv;
     }
