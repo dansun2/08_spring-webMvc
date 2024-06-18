@@ -1,6 +1,7 @@
 package com.ohgiraffers.chap07thymeleaf.controller;
 
 import com.ohgiraffers.chap07thymeleaf.model.dto.MemberDTO;
+import com.ohgiraffers.chap07thymeleaf.model.dto.SelectCriteria;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,13 @@ public class LectureController {
 
 
     @GetMapping("etc")
-    public void etc(){}
+    public ModelAndView etc(ModelAndView mv){
+        SelectCriteria selectCriteria = new SelectCriteria(1, 10, 3);
+        mv.addObject("selectCriteria", selectCriteria);
+
+        mv.setViewName("lecture/etc");
+        return mv;
+    }
 
 
 }
