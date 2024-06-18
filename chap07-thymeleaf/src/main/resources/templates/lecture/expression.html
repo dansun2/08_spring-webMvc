@@ -49,6 +49,16 @@
     <p th:text="${param.no[0]}"></p>
     <p th:text="${param.no[1]}"></p>
     <!-- 파라미터가 존재하지 않으면 무시하지 않고 에러가 발생함. -->
-    <p th:text="${param.no[2]}"></p>
+<!--    <p th:text="${param.no[2]}"></p>-->
+
+    <h2>표현식2 - 메세지 표현식 #{...}</h2>
+    <p th:text="#{message.value}"></p>
+
+    <h3>표현식3 - 링크 표현식 @{...}</h3>
+    <a th:href="@{/}">메인으로</a>
+
+    <h2>표현식4 - 선택 변수 표현식 *{...}</h2>
+    <p th:text="${member.age}"></p>
+    <p th:object="${member}" th:text="*{age}"></p>
 </body>
 </html>
