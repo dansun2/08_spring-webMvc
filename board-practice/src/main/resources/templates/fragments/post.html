@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <th:block th:fragment="postFragment">
+        <div style="display: flex">
+            <img th:src="@{https://picsum.photos/536/354}" alt="Post Image" th:if="${ post.title == 'Sample1' }">
+            <img th:src="@{https://placehold.co/600x400/EEE/31343C}" alt="Post Image" th:if="${ post.title == 'Sample2'}">
+            <img th:src="@{https://picsum.photos/536/354}" alt="Post Image" th:if="${ post.title == 'Sample3'}">
+            <h3 th:text="${post.title}"></h3>
+            <a th:href="@{${post.link}}">더보기</a>
+        </div>
+    </th:block>
+</body>
+</html>
