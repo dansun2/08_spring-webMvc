@@ -15,8 +15,13 @@ public class LectureController {
     // get 방식의 요청이 들어오면 expression이 있는지 찾고 있으면 밑에 return 실행
     @RequestMapping(value = "expression", method = RequestMethod.GET) // 축약하면 @GetMapping("expression")
     public ModelAndView expression(ModelAndView mv){
-
+        mv.setViewName("lecture/expression");
         return mv;
+    }
+
+    @GetMapping("etc")
+    public void etc(){
+
     }
 
 
