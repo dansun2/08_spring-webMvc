@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{ /css/common.css }" />
 </head>
 <body>
+    <h1 align="center">제어문</h1>
 
+    <h2>th:if, th:unless</h2>
+    <h3>
+      th:if는 변수 표현식의 OGNL을 활용한 조건식으로 조건문을 작성하면 결과가 true일 때 해당 태그범위가 처리된다.
+     th:unless는 표현식의 OGNL을 활용한 결과가 false일 때 해당 태그 범위가 처리된다.
+    </h3>
+    <p th:if="${ num > 0 }">넘어온 값은 0보다 크다.</p>      <!-- 조건에 해당되면 -->
+    <p th:if="${ num < 0 }">넘어온 값은 0보다 작다.</p>
+    <p th:unless="${ num < 0 }">넘어온 값은 0보다 크다.</p>   <!-- 조건에 해당하지 않으면 -->
 </body>
 </html>
