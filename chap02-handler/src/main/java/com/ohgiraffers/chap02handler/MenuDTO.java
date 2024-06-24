@@ -1,11 +1,15 @@
 package com.ohgiraffers.chap02handler;
 
+/*
+* DTO를 작성할 때 커맨드객체로 이용하기 위해서는 Form의 name과 필드가 일치하게 만들어야 한다.
+* */
 public class MenuDTO {
     private String name;
     private int price;
     private int category;
     private String orderableStatus;
 
+    // 1. 기본생성자를 이용하여 인스턴스를 생성한다.
     public MenuDTO() {
     }
 
@@ -20,6 +24,7 @@ public class MenuDTO {
         return name;
     }
 
+    // 요청 파라미터의 name과 일치하는 필드의 setter를 이용하여 값을 초기화 한다.
     public void setName(String name) {
         this.name = name;
     }

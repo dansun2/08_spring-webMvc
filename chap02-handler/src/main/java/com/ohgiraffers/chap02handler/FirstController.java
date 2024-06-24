@@ -6,6 +6,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/first/")
@@ -94,7 +95,8 @@ public class FirstController {
     }
 
     @PostMapping("search")
-    public ModelAndView searchMenu(@ModelAttribute("menu") MenuDTO menu){
-
+    public ModelAndView searchMenu(@ModelAttribute("menu") MenuDTO menu, WebRequest request){
+        MenuDTO menu = new MenuDTO();
+        Objects.isNull(request.getParameter("category")) ? "error" : menu.setCategory(Integer.parseInt(request.getParameter("category")));
     }
 }
