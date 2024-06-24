@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3ebaf63b-a2b1-4936-b9eb-71b33cc8bd8d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/common/MemberDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/common/MemberDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section01/xmlconfig/Application01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section02/javaconfig/Application01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section02/javaconfig/ContextConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section03/annotationconfig/subsection01/java/Application01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section03/annotationconfig/subsection01/java/ContextConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/java/com/ohgiraffers/section03/annotationconfig/subsection02/xml/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/resources/section01/xmlconfig/spring-context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08-1_spring_core/chap01_ioc-container/src/main/resources/section03/annotationconfig/subsection02/xml/spring-context.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2i1z3GefgWEIRsdalXAUUP8xxdD" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build chap07-thymeleaf.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Chap07ThymeleafApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/class/08_spring-webMvc/tied/chap07-thymeleaf&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\class\08_spring-webMvc\chap07-thymeleaf\src\main\resources\templates\common" />
+      <recent name="C:\class\08_spring-webMvc\chap07-thymeleaf\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Chap07ThymeleafApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chap07-thymeleaf.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ohgiraffers.chap07thymeleaf.Chap07ThymeleafApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ebaf63b-a2b1-4936-b9eb-71b33cc8bd8d" name="Changes" comment="" />
+      <created>1718672672914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718672672914</updated>
+      <workItem from="1718672674026" duration="21049000" />
+      <workItem from="1718776507959" duration="39000" />
+      <workItem from="1718776659094" duration="1510000" />
+      <workItem from="1718782661936" duration="1106000" />
+      <workItem from="1718843630605" duration="670000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

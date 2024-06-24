@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seohyun's blog</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Seohyun's blog</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="@{/home}">HOME</a></li>
+                <li><a href="@{/diary}">개발일기</a></li>
+                <li><a href="@{/review}">내돈내산 맛집</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="text" placeholder="게시글 검색">
+            <button>검색</button>
+        </div>
+    </div>
+</header>
+
+<section class="main-post">
+    <div class="main-post-content">
+        <div class="main-post-get">
+            <h2>오늘의 맛집소개</h2>
+            <p>어떤 맛집을 소개해볼까?</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="inner">
+        <h2>인기있는 포스트 TOP 10</h2>
+    </div>
+    <div class="popular-post">
+        <th:block th:each="post : ${ posts }">
+            <th:block th:insert="fragments/post :: postFragment"></th:block>
+        </th:block>
+    </div>
+</section>
+
+
+
+</body>
+</html>
