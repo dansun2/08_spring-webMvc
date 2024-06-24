@@ -1,7 +1,11 @@
 package com.ohgiraffers.chap02handler;
 
+import jakarta.servlet.http.HttpSession;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,6 +14,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/first/")
+@SessionAttributes("id")
 public class FirstController {
 
     /*
@@ -104,4 +109,38 @@ public class FirstController {
 
     @GetMapping("login")
     public void login(){}
+
+
+    /* 4-1. session이용하기
+     * HttpSession을 매개변수로 선언하면 핸들러 메소드 호출 시 세션 객체를 넣어서 호출한다.
+     * */
+    @PostMapping("login1")
+    public String sessionTest1(HttpSession session, @RequestParam String id){
+        session.setAttribute("id", id); // 세션에 값을 저장할 때
+        return "first/loginResult";
+    }
+
+    @GetMapping("logout1")
+    public String logoutTest1(HttpSession session){
+        session.invalidate();
+        return "first/loginResult";
+    }
+
+
+    /* 4-2. @SessionAttributes를 이용하여 session에 값 담기
+     * 클래스레벨에 @SessionAttributes 어노테이션을 이용하여 세션에 값을 담을 key값을 설정해두면
+     * Model영역에 해당 key로 값이 추가되는 경우 session에 자동 등록을 한다.
+     * */
+    @PostMapping("login2")
+    public String sessionTest2(Model model, @RequestParam String id){
+        model.addAttribute("id", id);
+        return "first/loginResult";
+    }
+
+    /* SessionAttributes로 등록된 값은 session의 상태를 관리하는 SessionStatus의 setComplete() 메소드를 호출해야 사용이 만료된다. */
+    @GetMapping("logout2")
+    public String logoutTest2(SessionStatus sessionStatus){
+        sessionStatus.setComplete();
+        return "first/loginResult";
+    }
 }
