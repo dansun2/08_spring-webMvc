@@ -89,14 +89,19 @@ public class FirstController {
         return mv;
     }
 
-    @PostMapping("search")
+    @GetMapping("search")
     public void search(){
 
     }
 
     @PostMapping("search")
-    public ModelAndView searchMenu(@ModelAttribute("menu") MenuDTO menu, WebRequest request){
-        MenuDTO menu = new MenuDTO();
-        Objects.isNull(request.getParameter("category")) ? "error" : menu.setCategory(Integer.parseInt(request.getParameter("category")));
+    public ModelAndView searchMenu(@ModelAttribute("menu") MenuDTO menu, ModelAndView mv){
+        System.out.println(menu);
+        mv.setViewName("first/searchResult");
+
+        return mv;
     }
+
+    @GetMapping("login")
+    public void login(){}
 }
