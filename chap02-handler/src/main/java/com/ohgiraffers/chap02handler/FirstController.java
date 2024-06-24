@@ -9,6 +9,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Map;
 import java.util.Objects;
 
@@ -142,5 +144,18 @@ public class FirstController {
     public String logoutTest2(SessionStatus sessionStatus){
         sessionStatus.setComplete();
         return "first/loginResult";
+    }
+
+    @GetMapping("body")
+    public void body(){}
+
+    @PostMapping("body")
+    public void bodyTest(@RequestBody String body,
+                         @RequestHeader("content-type") String contentType,
+                         @CookieValue(value = "JSESSIONID", required = false) String sessionID) throws UnsupportedEncodingException {
+        System.out.println(contentType);
+        System.out.println(sessionID);
+        System.out.println(body);
+        System.out.println(URLDecoder.decode(body,"UTF-8"));
     }
 }
