@@ -58,6 +58,6 @@ public class HelloServlet extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response){
-        String path = request.getRequestURI().substring(request.getContextPath().length()); // 사용자가 요청한 url을 가져오겠다. 그리고 기본경로를 자르고 뒤에거만 가져온다?
+        String path = request.getRequestURI().substring(request.getContextPath().length()); // **잘모르겠음. 사용자가 요청한 url을 가져오겠다. 그리고 기본경로를 자르고 뒤에거만 가져온다?
     }
 }
