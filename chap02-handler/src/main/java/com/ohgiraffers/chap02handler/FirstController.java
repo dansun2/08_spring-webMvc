@@ -16,7 +16,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/first/")
-@SessionAttributes("id")
+@SessionAttributes({"id","pwd"})
 public class FirstController {
 
     /*
@@ -117,14 +117,24 @@ public class FirstController {
      * HttpSession을 매개변수로 선언하면 핸들러 메소드 호출 시 세션 객체를 넣어서 호출한다.
      * */
     @PostMapping("login1")
-    public String sessionTest1(HttpSession session, @RequestParam String id){
+    public String sessionTest1(HttpSession session, @RequestParam String id, @RequestParam String pwd){
         session.setAttribute("id", id); // 세션에 값을 저장할 때
+        session.setAttribute("pwd", pwd);
         return "first/loginResult";
     }
 
     @GetMapping("logout1")
     public String logoutTest1(HttpSession session){
+        System.out.println("1차");
+        System.out.println(session.getAttribute("id"));
+        System.out.println(session.getAttribute("pwd"));
+        session.removeAttribute("id");
+        System.out.println("id 제거 후 ");
+        System.out.println(session.getAttribute("id"));
+        System.out.println(session.getAttribute("pwd"));
         session.invalidate();
+        System.out.println("모든 세션 초기화");
+
         return "first/loginResult";
     }
 
@@ -134,14 +144,17 @@ public class FirstController {
      * Model영역에 해당 key로 값이 추가되는 경우 session에 자동 등록을 한다.
      * */
     @PostMapping("login2")
-    public String sessionTest2(Model model, @RequestParam String id){
+    public String sessionTest2(Model model, @RequestParam String id, @RequestParam String pwd){
         model.addAttribute("id", id);
+        model.addAttribute("pwd", pwd);
+
         return "first/loginResult";
     }
 
     /* SessionAttributes로 등록된 값은 session의 상태를 관리하는 SessionStatus의 setComplete() 메소드를 호출해야 사용이 만료된다. */
     @GetMapping("logout2")
     public String logoutTest2(SessionStatus sessionStatus){
+        System.out.println("d");
         sessionStatus.setComplete();
         return "first/loginResult";
     }
