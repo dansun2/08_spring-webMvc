@@ -27,19 +27,19 @@ public class HelloServlet extends HttpServlet {
         String method = httpRequest.getMethod();
 
         if("GET".equals(method)){
-            doGet();
+            doGet(httpRequest, httpResponse);
         }else if("POST".equals(method)){
-            doPost();
+            doPost(httpRequest, httpResponse);
         }else if("PUT".equals(method)){
-            doPut();
+            doPut(httpRequest, httpResponse);
         }else if("DELETE".equals(method)){
-            doDelete();
+            doDelete(httpRequest, httpResponse);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        super.doGet(req, resp); // view resolver야 니가 요청을 담아서 다음으로 보내~난 할 일 끝났어
     }
 
     @Override
@@ -55,5 +55,9 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doDelete(req, resp);
+    }
+
+    private void processRequest(HttpServletRequest request, HttpServletResponse response){
+        String path = request.getRequestURI().substring(request.getContextPath().length()); // 사용자가 요청한 url을 가져오겠다. 그리고 기본경로를 자르고 뒤에거만 가져온다?
     }
 }
