@@ -1,12 +1,14 @@
 package com.ohgiraffers.dispatcherservlet;
 
 import java.io.*;
+import java.net.URL;
+import java.util.Map;
 
+import com.ohgiraffers.dispatcherservlet.controller.Controller;
+import com.ohgiraffers.dispatcherservlet.controller.MainController;
 import com.ohgiraffers.dispatcherservlet.handler.HandlerMapping;
 import com.ohgiraffers.dispatcherservlet.handler.ViewResolver;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
+import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -17,8 +19,9 @@ public class DispatcherServlet extends HttpServlet {
     private ViewResolver viewResolver;
 
     @Override // 요청이 들어왔을 때 가장 먼저 실행되는 메서드. 요청이 들어왔을때 빈이나 소스를 주입해주는 역할
-    public void init() throws ServletException {
-        super.init();
+    public void init(ServletConfig config) throws ServletException {
+        handlerMapping = new HandlerMapping();
+        viewResolver = new ViewResolver();
     }
 
     @Override
@@ -44,25 +47,51 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); // view resolver야 니가 요청을 담아서 다음으로 보내~난 할 일 끝났어
+//        super.doGet(req, resp); // view resolver야 니가 요청을 담아서 다음으로 보내~난 할 일 끝났어
+        processRequest(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        processRequest(req, resp);
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
+        processRequest(req, resp);
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+        processRequest(req, resp);
     }
 
-    private void processRequest(HttpServletRequest request, HttpServletResponse response){
-        String path = request.getRequestURI().substring(request.getContextPath().length()); // **잘모르겠음. 사용자가 요청한 url을 가져오겠다. 그리고 기본경로를 자르고 뒤에거만 가져온다?
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // **잘모르겠음. 사용자가 요청한 url을 가져오겠다. 그리고 기본경로를 자르고 뒤에거만 가져온다 ex) path 에 담기는 값은 /test나 /main 등등
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+
+        Controller controller = handlerMapping.getController(path);
+
+        if(controller != null){
+            String page = controller.handlerRequest(request, response);
+
+            Map<String, String> root = viewResolver.getView(page);
+
+            if(root.containsKey("redirect")){
+                response.sendRedirect(root.get("redirect"));
+            }else {
+                ServletContext servletContext = request.getServletContext();
+                URL resource = servletContext.getResource(root.get("forward"));
+
+                if(resource == null){
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+
+                request.getRequestDispatcher(root.get("forward")).forward(request, response);
+            }
+        }else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        }
+
     }
 }
