@@ -2,6 +2,8 @@ package com.ohgiraffers.dispatcherservlet;
 
 import java.io.*;
 
+import com.ohgiraffers.dispatcherservlet.handler.HandlerMapping;
+import com.ohgiraffers.dispatcherservlet.handler.ViewResolver;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -9,7 +11,10 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(value = "/")
-public class HelloServlet extends HttpServlet {
+public class DispatcherServlet extends HttpServlet {
+
+    private HandlerMapping handlerMapping;
+    private ViewResolver viewResolver;
 
     @Override // 요청이 들어왔을 때 가장 먼저 실행되는 메서드. 요청이 들어왔을때 빈이나 소스를 주입해주는 역할
     public void init() throws ServletException {
