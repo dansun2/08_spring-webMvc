@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -24,7 +26,7 @@ public class FileUploadController {
     }
 
     @PostMapping("single-file")
-    public String singFileUpload(@RequestParam MultipartFile singleFile,String singleFileDescription, Model model) throws IOException {
+    public String singFileUpload(@RequestParam MultipartFile singleFile, String singleFileDescription, Model model) throws IOException {
 
         //ㅍㅏ일 저장할 경로를 설정한다.
         Resource resource = resourceLoader.getResource("classpath:static/img/single");
@@ -60,4 +62,46 @@ public class FileUploadController {
         return "result";
     }
 
+
+    @PostMapping("multi-file")
+    public String multiFileUpload(@RequestParam List<MultipartFile> multipartFiles,
+                                  String multiFileDescription, Model model) throws IOException {
+        Resource resource = resourceLoader.getResource("classpath:static/img/multi");
+        String filePath = null;
+
+        if(!resource.exists()) {
+            String root = "src/main/resources/static/img/multi";
+            File file = new File(root);
+            file.mkdirs();
+            filePath = file.getAbsolutePath();
+        }else{
+            filePath = resourceLoader.getResource("classpath:static/img/multi").getFile().getAbsolutePath();
+        }
+        List<FileDTO> files = new ArrayList<>();
+        List<String> saveFiles = new ArrayList<>();
+
+        try {
+            for (MultipartFile file : multipartFiles) {
+                String originFileName = file.getOriginalFilename();
+                String ext = originFileName.substring(originFileName.lastIndexOf("."));
+                String savedName = UUID.randomUUID().toString().replace("-", "") + ext;
+
+                files.add(new FileDTO(originFileName, savedName, filePath, multiFileDescription));
+
+                file.transferTo(new File(filePath + "/" + savedName));
+                saveFiles.add("static/img/multi/" + savedName);
+            }
+            model.addAttribute("message", "파일 업로드 성공");
+            model.addAttribute("imgs", saveFiles);
+        }catch (Exception e){
+            e.printStackTrace();
+
+            // 파일 업로드에 실패했을때 다시 업로드하게 시키기 위해 모든 파일을 다 지우게 함
+            for (FileDTO file : files) {
+                new File(filePath + "/" + file.getSaveName()).delete();
+            }
+            model.addAttribute("message", "파일 업로드 실패");
+        }
+        return "result";
+    }
 }
