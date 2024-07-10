@@ -1,11 +1,10 @@
 package com.ohgiraffers.chap06fileupload;
 
 public class FileDTO {
-    private String originFileName;
-
-    private String saveName;
-    private String filePath;
-    private String fileDescription;
+    private String originFileName; // 원본 이름을 데이터베이스에 저장 -> 사용자에게 보여줄 때 이 이름으로 다시 바꿔서 보여주고
+    private String saveName; // 이름을 변경해서 DB에 저장함 해킹이나 다른 사용자와 겹치기 등의 문제
+    private String filePath; // 저장 경로
+    private String fileDescription; // 설명
 
     public FileDTO() {
     }
