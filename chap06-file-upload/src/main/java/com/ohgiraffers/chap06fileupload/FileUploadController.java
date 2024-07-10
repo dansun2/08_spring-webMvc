@@ -27,7 +27,7 @@ public class FileUploadController {
     public String singFileUpload(@RequestParam MultipartFile singleFile,String singleFileDescription, Model model) throws IOException {
 
         //ㅍㅏ일 저장할 경로를 설정한다.
-        Resource resource = resourceLoader.getResource("classpath:static:/img/single");
+        Resource resource = resourceLoader.getResource("classpath:static/img/single");
 
         String filePath = null;
 
