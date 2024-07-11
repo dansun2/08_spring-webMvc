@@ -17,18 +17,28 @@ public class StopWatchInterceptor implements HandlerInterceptor {
         this.menuService = menuService;
     }
 
-    @Override // 전처리를 위한 핸들러 filter -> interceptor -> controller
+    @Override // 전처리를 위한 핸들러 filter -> dispatcherservlet -> interceptor -> controller
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        System.out.println("preHandle 동작함");
+        long startTime = System.currentTimeMillis();
+        request.setAttribute("startTime", startTime);
+
+        return true;
     }
 
-    @Override // 후처리를 위한 핸들러 filter -> controller -> interceptor
+    @Override // 후처리를 위한 핸들러 filter -> controller -> interceptor ->dispatcherservlet
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+        System.out.println("postHandle 호출함");
+        long startTime = (long) request.getAttribute("startTime");
+        request.removeAttribute("startTime"); // 윗줄에서 시간을 꺼내서 담았으니까 제거
+        long endTime = System.currentTimeMillis(); // currentTimeMillis는 현재 시간을 초단위로 분석함
+        modelAndView.addObject("interval", endTime - startTime); // 이 작업을 하는데 걸린 최종적인 시간이 얼마인지 계산
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
+        System.out.println("afterCompletion 호출함");
+
+        menuService.method();
     }
 }
