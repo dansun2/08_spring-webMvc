@@ -1,5 +1,6 @@
 package com.ohgiraffers.chap05interceptor;
 
+import jakarta.annotation.Nullable;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,8 @@ public class StopWatchInterceptor implements HandlerInterceptor {
     }
 
     @Override // 후처리를 위한 핸들러 filter -> controller -> interceptor ->dispatcherservlet
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                           @Nullable ModelAndView modelAndView) throws Exception {
         System.out.println("postHandle 호출함");
         long startTime = (long) request.getAttribute("startTime");
         request.removeAttribute("startTime"); // 윗줄에서 시간을 꺼내서 담았으니까 제거
@@ -36,7 +38,7 @@ public class StopWatchInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         System.out.println("afterCompletion 호출함");
 
         menuService.method();
