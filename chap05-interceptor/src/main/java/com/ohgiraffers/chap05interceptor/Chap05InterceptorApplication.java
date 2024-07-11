@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * 필터와 서블릿
 *
 * filter
-* servlet 스펙에 정의된 기능으로 서블릿 컨테이너 레벨에서 동작한다.
+* servlet(톰캣) 스펙에 정의된 기능으로 서블릿 컨테이너 레벨에서 동작한다.
 * spring mvc와는 독립적으로 동작하며 주로 요청이 서블릿에 도달하기 전에 작동한다.
 * 필터는 모든 요청과 응답을 가로채며, 주로 보안, 로깅, 인증 등과 같은 작업을 수행한다.
 *
@@ -19,7 +19,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * 적용 범위
 * filter
 * 모든 http 요청과 응답을 대상으로 한다.
-* 서블릿 컨텍스트ㅏ에 등록하여 특정 url 패턴에 적용할 수 있다.
+* 서블릿 컨텍스트에 등록하여 특정 url 패턴에 적용할 수 있다.
 *
 * interceptor
 * spring MVC의 핸들러 메서드에만 적용된다.
