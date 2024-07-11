@@ -1,6 +1,7 @@
 package com.ohgiraffers.chap04exception;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -24,7 +25,7 @@ public class ExceptionHandlerController {
 
     // 사용자 정의 익셉션
     @GetMapping("controller-user")
-    public String userExceptionTest(){
+    public String userExceptionTest() throws MemberRegistException {
         boolean check = true;
 
         if(check){
@@ -32,5 +33,11 @@ public class ExceptionHandlerController {
         }
 
         return "/";
+    }
+    @ExceptionHandler(MemberRegistException.class)
+    public String userExceptionHandler(Model model, MemberRegistException memberRegistException){
+        System.out.println("controller 레벨의 exception 처리");
+        model.addAttribute("exception", memberRegistException);
+        return "error/memberRegist";
     }
 }
