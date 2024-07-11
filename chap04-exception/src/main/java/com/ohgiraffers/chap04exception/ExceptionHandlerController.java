@@ -31,9 +31,9 @@ public class ExceptionHandlerController {
         if(check){
             throw new MemberRegistException("회원가입이 불가능합니다.");
         }
-
         return "/";
     }
+
     @ExceptionHandler(MemberRegistException.class)
     public String userExceptionHandler(Model model, MemberRegistException memberRegistException){
         System.out.println("controller 레벨의 exception 처리");
