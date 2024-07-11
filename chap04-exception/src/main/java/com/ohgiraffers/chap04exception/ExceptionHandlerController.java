@@ -15,9 +15,22 @@ public class ExceptionHandlerController {
         return "/";
     }
 
+    // 클래스 레벨 익셉션
     @ExceptionHandler(NullPointerException.class) // 이 클래스 내부에서 널포인트 익셉션이 발생하면 내가 여기서 처리하겠다
     public String nullPointerExceptionHandler(NullPointerException exception){
         System.out.println("controller 레벨의 exception 처리");
         return "error/nullpointer";
+    }
+
+    // 사용자 정의 익셉션
+    @GetMapping("controller-user")
+    public String userExceptionTest(){
+        boolean check = true;
+
+        if(check){
+            throw new MemberRegistException("회원가입이 불가능합니다.");
+        }
+
+        return "/";
     }
 }
