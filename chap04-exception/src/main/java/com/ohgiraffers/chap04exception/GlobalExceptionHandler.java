@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String nullPointerExceptionHandler(Exception exception){
-        System.out.println("global exception 처리");
+        System.out.println("global exception 처리(이외 다른 모든 경우)");
         return "error/default";
     }
 }

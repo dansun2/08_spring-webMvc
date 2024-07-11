@@ -10,4 +10,20 @@ public class OtherController {
         System.out.println(str.charAt(0));
         return "/";
     }
+
+    @GetMapping("other-controller-user")
+    public String otherUserException() throws MemberRegistException {
+        boolean check = true;
+        if(check){
+            throw new MemberRegistException("회원가입 불가능");
+        }
+        return "/";
+    }
+
+    @GetMapping("other-controller-array")
+    public String otherArrayException(){
+        double[] array = new double[0];
+        System.out.println(array[0]);
+        return "/";
+    }
 }
